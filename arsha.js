@@ -19,15 +19,15 @@ removeBtn.addEventListener("click",()=>{
     rootEle.style.setProperty("--body-value","nothing");
 });
 
-const navbarContainer = document.getElementById("navbar-container");
+const navbar = document.getElementById("navbar");
 
 window.addEventListener("scroll",display);
 
 function display(){
     if(scrollY >= 100)
-        navbarContainer.classList.add("transparent");
+        navbar.classList.add("transparent");
     else
-        navbarContainer.classList.remove("transparent");
+        navbar.classList.remove("transparent");
 }
 
 const homeImg = document.querySelector("#home > img");
@@ -315,16 +315,16 @@ webBtn.addEventListener("click",()=>{
         webBtn.classList.add("active-span");
 });
 
-//navbar fixing
-const dropdown1 = document.querySelector("#dropdown1");
-const deepDropdown = document.querySelector("#deep-dropdown")
-window.addEventListener("resize",leftDetermine); 
+// //navbar fixing
+// const dropdown1 = document.querySelector("#dropdown1");
+// const deepDropdown = document.querySelector("#deep-dropdown")
+// window.addEventListener("resize",leftDetermine); 
 
-function leftDetermine(){
-    let left = dropdown1.getBoundingClientRect().left;
-    left -=5;
-    let width = window.innerWidth;
-    let value = width - left - 22;
-    deepDropdown.style.right = `${value}px`;
-}
-window.addEventListener("load",leftDetermine);
+// function leftDetermine(){
+//     let left = dropdown1.getBoundingClientRect().left;
+//     left -=5;
+//     let width = window.innerWidth;
+//     let value = width - left - 22;
+//     deepDropdown.style.right = `${value}px`;
+// }
+// window.addEventListener("load",leftDetermine);

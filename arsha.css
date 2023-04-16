@@ -36,31 +36,30 @@ body::before{
 }
 
 /*navigation bar*/
-header#navbar-container{
-    color: var(--white);
-    position: fixed;
-    width: 100vw;
-    z-index: 1;
-}
 .transparent{
 background-color: var(--primary-transparent);
 }
 #navbar{
+    position: fixed;
+    left: 0; 
+    right: 0;
+    top: 0;
     display: flex;
-    height: 60px;
     justify-content: space-between;
     align-items: center;
-    /* min-width: 550px; */
-    max-width: 80%;
     margin: auto;
-    padding: 0 7px;
-    position: relative;
+    padding: 0.8rem 2.5%;
+    z-index: 1;
+}
+#navbar > h1{
+    color: var(--white);
 }
 .hide{
     display:none;
 }
 #toggle{
     cursor: pointer;
+    color: white;
 }
 #cross{
     position: fixed;
@@ -68,6 +67,7 @@ background-color: var(--primary-transparent);
     top: 1rem;
     cursor: pointer;
     z-index: 1;
+    color: var(--white);
 }
 #links{
     position: fixed;
@@ -118,15 +118,28 @@ background-color: var(--primary-transparent);
 }
 #dropdown1, #deep-dropdown{
     height: 0;
-    overflow: auto;
     width: 90%;
     margin: auto;
+    transition: height 0.5s, transform 0.5s,opacity 0.5s, width 0.5s;
     box-shadow: 0 0 2rem var(--gray-300);
+    opacity: 0;
+}
+#dropdown1{
+    transform: translateY(-2rem);
+}
+#deep-dropdown{
+    transform: translateX(-2rem);
 }
 #dropdown-container:hover > #dropdown1, #dropdown-deep-container:hover > #deep-dropdown{
     height: unset;
+    opacity: 1;
 }
-
+#dropdown-container:hover > #dropdown1{
+    transform: translateY(0);
+}
+#dropdown-deep-container:hover > #deep-dropdown{
+    transform: unset;
+}
 /*section home*/
 section#home{
     height: 100vh;
@@ -499,7 +512,6 @@ section#services{
 .height-0{
     height: 0;
     margin: 0 !important;
-    /* display: none; */
 }
 .display-none{
     display: none;
@@ -724,6 +736,7 @@ footer{
     }
     #links{
         flex-basis: 75%;
+        overflow: unset;
         position: unset;
         display: flex;
         background-color: transparent;
@@ -733,20 +746,33 @@ footer{
     #links > a, #links > div a, #links div.link-arrow i{
         color: var(--white);
     }
+    #dropdown-container, #dropdown-deep-container{
+        position: relative;
+    }
+    #dropdown-container:hover > #dropdown1, #dropdown-deep-container:hover > #deep-dropdown{
+        height: calc(44px * 5);
+        opacity: 1;
+    }
+    #dropdown-deep-container:hover > #deep-dropdown{
+        width: 100%;
+    }
     #dropdown1{
         position: absolute;
-        width: max-content;
-        background-color: var(--primary);
+        width: 140%;
+        background-color: var(--white);
+    }
+    #dropdown1 > a, #dropdown-deep-container a{
+        color: var(--primary) !important; 
     }
     #deep-dropdown{
-        position: fixed;
-        width: max-content;
-        top: 110px;
+        position: absolute;
+        width: 0;
+        height: calc(44px * 5);
+        top: 0;
+        left: 98%;
         z-index: -1;
-        background-color: var(--primary);
-    }
-    #dropdown1{
-        top: 52px;
+        background-color: var(--white);
+        color: var(--primary) !important;
     }
     #links > a:not(#links > a:last-of-type){
         padding: unset;
@@ -796,10 +822,6 @@ footer{
     footer{
         grid-template-columns: 25% 25% 25% 25%;
     }
-    /* .footer-section{
-        align-content: flex-start;
-        display: grid;
-    } */
 }
 
 @keyframes img-up-down{
