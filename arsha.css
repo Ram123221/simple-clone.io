@@ -340,7 +340,7 @@ section#img-container > img:hover{
 #about-part3 > img{
     display: block;
     transition: all 2s;
-    max-width: 650px;
+    max-width: 250px;
 }
 .translate-left{
     transform: translateX(-100%);
@@ -695,7 +695,10 @@ footer{
     }
     #menu-items > .menu-item > img{
         /* vertical-align: middle; */
-    /* } */ */
+    /* } */
+    #about-part3 > img{
+        max-width: 650px;
+    }
     #team-cards{
         display: flex;
         flex-wrap: wrap;
